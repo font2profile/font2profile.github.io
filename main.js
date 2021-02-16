@@ -22,15 +22,15 @@ function onClick() {
 
 			if (fonts.length == fontXmls.length) {
 				let configXml = createProfileXml(fontXmls,fontNames.join("-"));
-				let blob = new Blob([configXml],{ type: "text/xml" });
-
-				let aTag = document.createElement("a");
-				aTag.innerText = "download";
-				aTag.download = "font.mobileconfig";
-				aTag.href = window.URL.createObjectURL(blob);
+				let blob = new File([configXml], "font.mobileconfig", { type: "text/xml" });
+				window.location.assign(window.URL.createObjectURL(blob))
+				// let aTag = document.createElement("a");
+				// aTag.innerText = "download";
+				// aTag.download = "font.mobileconfig";
+				// aTag.href = window.URL.createObjectURL(blob);
 				// window.open(url,"_blank");
-				aTag.target = "_blank";
-				document.getElementById("form").appendChild(aTag)
+				// aTag.target = "_blank";
+				// document.getElementById("form").appendChild(aTag)
 				// aTag.click();
 				// window.URL.revokeObjectURL(aTag.href);
 			}
