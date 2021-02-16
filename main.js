@@ -25,12 +25,13 @@ function onClick() {
 				let blob = new File([configXml],"font.mobileconfig",{ type: "text/xml" });
 				// window.location.assign(window.URL.createObjectURL(blob))
 				let aTag = document.createElement("a");
+				document.body.appendChild(aTag)
 				// aTag.innerText = "download";
 				// aTag.download = "font.mobileconfig";
 				aTag.download = blob.name;
 				aTag.href = window.URL.createObjectURL(blob);
 				aTag.style = "display: none;";
-				document.body.appendChild(aTag)
+				aTag.dataset.downloadurl = ["text/xml", blob.name, aTag.href].join(":")
 				// window.open(url,"_blank");
 				// aTag.target = "_blank";
 				// document.getElementById("form").appendChild(aTag)
