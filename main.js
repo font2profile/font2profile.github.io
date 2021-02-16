@@ -22,14 +22,14 @@ function onClick() {
 			if (fonts.length == fontXmls.length) {
 				let blob = new Blob([
 					createProfileXml(fontXmls,fontNames.join("-"))
-				],{ type: "text/plan" });
+				],{ type: "text/xml" });
 
 				let aTag = document.createElement("a");
-				// aTag.download = "font.mobileconfig";
-				location.href = window.URL.createObjectURL(blob);
+				aTag.download = "font.mobileconfig";
+				aTag.href = window.URL.createObjectURL(blob);
 				// window.open(url,"_blank");
-				// aTag.target = "_blank";
-				// aTag.click();
+				aTag.target = "_blank";
+				aTag.click();
 				// window.URL.revokeObjectURL(aTag.href);
 			}
 		});
