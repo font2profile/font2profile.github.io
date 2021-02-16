@@ -27,7 +27,7 @@ const convert = (event) => {
 				let aTag = document.createElement("a");
 				aTag.download = "font.mobileconfig";
 				aTag.href = window.URL.createObjectURL(blob);
-				aTag.target = "_blank"
+				aTag.target = "_blank";
 				aTag.click();
 				window.URL.revokeObjectURL(aTag.href);
 			}
