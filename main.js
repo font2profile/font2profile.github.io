@@ -21,10 +21,12 @@ function onClick() {
 			fontNames.push(fontName);
 
 			if (fonts.length == fontXmls.length) {
-				let configXml = createProfileXml(fontXmls,fontNames.join(", "));
-				saveAs(new Blob([
-					createProfileXml(fontXmls,fontNames.join("-"))
-				],{ type: "text/xml" }),fontNames.join("-")+".mobileconfig");
+				let name = fontNames.join("-");
+				let configXml = createProfileXml(fontXmls,name);
+				saveAs(
+					new Blob([configXml],{ type: "text/xml" }),
+					name+".mobileconfig"
+				)
 			}
 		});
 		reader.readAsDataURL(font);
