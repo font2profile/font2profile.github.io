@@ -21,32 +21,10 @@ function onClick() {
 			fontNames.push(fontName);
 
 			if (fonts.length == fontXmls.length) {
-				let configXml = createProfileXml(fontXmls,fontNames.join("-"));
-				let blob = new File([configXml],"font.mobileconfig",{ type: "application/octet-stream" });
-				let bF = new FileReader()
-				bF.addEventListener("load",() => {
-					let aTag = document.createElement("a")
-					aTag.href = bF.result
-					aTag.download = "font.mobileconfig"
-					aTag.click()
-				})
-				bF.readAsDataURL(blob)
-
-				// window.location.assign(window.URL.createObjectURL(blob))
-				// let aTag = document.createElement("a");
-				// document.body.appendChild(aTag)
-				// aTag.innerText = "download";
-				// aTag.download = "font.mobileconfig";
-				// aTag.download = blob.name;
-				// aTag.href = window.URL.createObjectURL(blob);
-				// aTag.style = "display: none;";
-				// aTag.dataset.downloadurl = ["text/xml", blob.name, aTag.href].join(":")
-				// window.open(url,"_blank");
-				// aTag.target = "_blank";
-				// document.getElementById("form").appendChild(aTag)
-				// aTag.click();
-				// aTag.dispatchEvent(new MouseEvent("click",{ bubbles: true,cancelable: true, view:window}))
-				// window.URL.revokeObjectURL(aTag.href);
+				let configXml = createProfileXml(fontXmls,fontNames.join(", "));
+				saveAs(new Blob([
+					createProfileXml(fontXmls,fontNames.join("-"))
+				],{ type: "text/xml" }),fontNames.join("-")+".mobileconfig");
 			}
 		});
 		reader.readAsDataURL(font);
