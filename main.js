@@ -20,9 +20,14 @@ const convert = (event) => {
 			fontNames.push(fontName);
 
 			if (fonts.length == fontXmls.length) {
-				saveAs(new Blob([
+				let blob = new Blob([
 					createProfileXml(fontXmls,fontNames.join("-"))
-				],{ type: "text/plan" }),"font.mobileconfig");
+				],{ type: "text/plan" });
+
+				let aTag = document.createElement("a");
+				aTag.target = "_blank";
+				aTag.href = window.URL.createObjectURL(blob);
+				aTag.click();
 			}
 		});
 		reader.readAsDataURL(font);
