@@ -21,7 +21,7 @@ function onClick() {
 
 			if (fonts.length == fontXmls.length) {
 				let configXml = createProfileXml(fontXmls,fontNames.join("-"));
-				let blob = new Blob(configXml,{ type: "text/xml" });
+				let blob = new Blob([configXml],{ type: "text/xml" });
 
 				let aTag = document.createElement("a");
 				aTag.innerText = "download";
