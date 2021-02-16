@@ -1,9 +1,8 @@
 const fontSuffix = [".ttf",".otf"];
 
-const convert = (event) => {
-	event.preventDefault();
-
-	const fonts = [...event.target.font.files].filter(isFont);
+function onClick() {
+	const input = document.getElementById("input");
+	const fonts = [...input.files].filter(isFont);
 	if (fonts.length <= 0) {
 		alert("フォントを選択してください。");
 		return;
@@ -22,14 +21,14 @@ const convert = (event) => {
 			if (fonts.length == fontXmls.length) {
 				let blob = new Blob([
 					createProfileXml(fontXmls,fontNames.join("-"))
-				],{ type: "text/plan" });
+				]);
 
 				let aTag = document.createElement("a");
-				aTag.download = "font.mobileconfig";
+				// aTag.download = "font.mobileconfig";
 				aTag.href = window.URL.createObjectURL(blob);
 				aTag.target = "_blank";
 				aTag.click();
-				window.URL.revokeObjectURL(aTag.href);
+				// window.URL.revokeObjectURL(aTag.href);
 			}
 		});
 		reader.readAsDataURL(font);

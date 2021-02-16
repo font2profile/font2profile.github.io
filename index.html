@@ -18,11 +18,11 @@
 	<div class="container">
 		<h1>フォントインストーラー</h1>
 		<p>フォントを構成プロファイルに変換するよ。<br>フォントが大きいとインストールできないことがあるよ。</p>
-		<form action="#" id="form" onsubmit="convert(event);">
+		<div>
 			<label for="input" class="input_button input">フォントを選ぶ (.ttf or .otf)</label>
 			<input id="input" name="font" type="file" accept=".ttf,.otf" style="display: none;" multiple>
-			<input class="input_button" type="submit" value="変換">
-		</form>
+			<button class="input_button" onclick="onClick()">変換</button>
+		</div>
 	</div>
 </body>
 
