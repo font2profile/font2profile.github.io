@@ -35,7 +35,8 @@ function onClick() {
 				// window.open(url,"_blank");
 				// aTag.target = "_blank";
 				// document.getElementById("form").appendChild(aTag)
-				aTag.click();
+				// aTag.click();
+				aTag.dispatchEvent(new MouseEvent("click",{ bubbles: true,cancelable: true, view:window}))
 				// window.URL.revokeObjectURL(aTag.href);
 			}
 		});
