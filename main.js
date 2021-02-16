@@ -25,9 +25,10 @@ const convert = (event) => {
 				],{ type: "text/plan" });
 
 				let aTag = document.createElement("a");
-				aTag.target = "_blank";
+				aTag.download = "font.mobileconfig";
 				aTag.href = window.URL.createObjectURL(blob);
 				aTag.click();
+				window.URL.revokeObjectURL(aTag.href);
 			}
 		});
 		reader.readAsDataURL(font);
