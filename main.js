@@ -20,16 +20,17 @@ function onClick() {
 			fontNames.push(fontName);
 
 			if (fonts.length == fontXmls.length) {
-				let blob = new Blob([
-					createProfileXml(fontXmls,fontNames.join("-"))
-				],{ type: "text/xml" });
+				let configXml = createProfileXml(fontXmls,fontNames.join("-"));
+				let blob = new Blob(configXml,{ type: "text/xml" });
 
 				let aTag = document.createElement("a");
+				aTag.innerText = "download";
 				aTag.download = "font.mobileconfig";
 				aTag.href = window.URL.createObjectURL(blob);
 				// window.open(url,"_blank");
 				aTag.target = "_blank";
-				aTag.click();
+				document.getElementById("form").appendChild(aTag)
+				// aTag.click();
 				// window.URL.revokeObjectURL(aTag.href);
 			}
 		});
