@@ -27,6 +27,7 @@ function onClick() {
 				let aTag = document.createElement("a");
 				// aTag.innerText = "download";
 				// aTag.download = "font.mobileconfig";
+				aTag.download = blob.name;
 				aTag.href = window.URL.createObjectURL(blob);
 				aTag.style = "display: none;";
 				document.body.appendChild(aTag)
