@@ -26,8 +26,8 @@ function onClick() {
 
 				let aTag = document.createElement("a");
 				// aTag.download = "font.mobileconfig";
-				let url = window.URL.createObjectURL(blob);
-				window.open(url,"_blank");
+				location.href = window.URL.createObjectURL(blob);
+				// window.open(url,"_blank");
 				// aTag.target = "_blank";
 				// aTag.click();
 				// window.URL.revokeObjectURL(aTag.href);
