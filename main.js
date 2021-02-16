@@ -16,6 +16,7 @@ function onClick() {
 		reader.addEventListener("load",() => {
 			let fontName = getFontName(font.name);
 			let xml = createFontXml(reader.result,fontName);
+			console.log(reader.result)
 			fontXmls.push(xml);
 			fontNames.push(fontName);
 
