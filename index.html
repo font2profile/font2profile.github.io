@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Font2Profile</title>
+
+	<link rel="stylesheet" href="main.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<p>フォントを構成プロファイルに変換するよ。<br>フォントが大きいとインストールできないことがあるよ。</p>
+		<form action="#" id="form" onsubmit="convert(event);">
+			<label for="input" class="input_button">フォントを選ぶ (.ttf or .otf)</label>
+			<input id="input" name="font" type="file" accept=".ttf,.otf" style="display: none;" multiple>
+			<input class="input_button" type="submit" value="Convert" style="height: 50px;">
+		</form>
+	</div>
+</body>
+
+</html>
